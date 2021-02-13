@@ -84,20 +84,21 @@ public class Model {
 
     public boolean canMove() {
         int count = 0;
+
         for (int i = 0; i < FIELD_WIDTH - 1; i++) {
-            for (int j = 0; j < FIELD_WIDTH - 1; j++) {
-                if (!gameTiles[i][j].isEmpty() && gameTiles[i][j].value != gameTiles[i][j + 1].value &&
-                        gameTiles[i][j].value != gameTiles[i + 1][j].value)
+            for (int j = 0; j < FIELD_WIDTH; j++) {
+                if (!gameTiles[i][j].isEmpty() && gameTiles[i][j].value != gameTiles[i + 1][j].value)
                     count++;
             }
         }
-        if (!gameTiles[FIELD_WIDTH - 1][FIELD_WIDTH - 1].isEmpty() &&
-                !gameTiles[FIELD_WIDTH - 1][FIELD_WIDTH - 2].isEmpty() &&
-                gameTiles[FIELD_WIDTH - 1][FIELD_WIDTH - 1].value != gameTiles[FIELD_WIDTH - 1][FIELD_WIDTH - 2].value &&
-                !gameTiles[FIELD_WIDTH - 2][FIELD_WIDTH - 1].isEmpty() &&
-                gameTiles[FIELD_WIDTH - 1][FIELD_WIDTH - 1].value != gameTiles[FIELD_WIDTH - 2][FIELD_WIDTH - 1].value)
-            count++;
-        return count != 10;
+
+        for (int i = 0; i < FIELD_WIDTH; i++) {
+            for (int j = 0; j < FIELD_WIDTH - 1; j++) {
+                if (!gameTiles[i][j].isEmpty() && gameTiles[i][j].value != gameTiles[i][j + 1].value)
+                    count++;
+            }
+        }
+        return count != 24;
     }
 
     public void randomMove() {
