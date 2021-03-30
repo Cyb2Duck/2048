@@ -1,4 +1,4 @@
-package main;
+package game;
 
 public class MoveEfficiency implements Comparable<MoveEfficiency>{
     private int numberOfEmptyTiles;

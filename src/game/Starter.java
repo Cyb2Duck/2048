@@ -1,8 +1,8 @@
-package main;
+package game;
 
 import javax.swing.*;
 
-public class Main {
+public class Starter {
 
     public static void main(String[] args){
         Model model = new Model();
